@@ -42,13 +42,11 @@ module Cardo
     private
 
     def _validate_config!
-      if api_key.nil?
-        raise Cardo::ConfigurationError, "api_key must be provided"
-      elsif project_id.nil?
-        raise Cardo::ConfigurationError, "project_id must be provided"
-      elsif pivot_day.nil?
-        raise Cardo::ConfigurationError, "pivot_day must be provided"
-      end
+      messages = []
+      messages << "api_key must be provided"    if api_key.nil?
+      messages << "project_id must be provided" if project_id.nil?
+      messages << "pivot_day must be provided"  if pivot_day.nil?
+      raise Cardo::ConfigurationError, messages.join(", ") unless messages.empty?
     end
 
     def _project
