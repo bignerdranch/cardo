@@ -10,6 +10,9 @@ Examples
 Given a file **highgroove.rb**:
 
 ```ruby
+require 'rubygems'
+require 'cardo'
+
 Cardo.describe do
   WEEKLY_REVIEWER = 'Charles Brian Quinn'
   DEVELOPERS      = ['Andy Lindeman', 'Chris Kelly']
@@ -47,5 +50,5 @@ end
 Create the stories with:
 
 ```bash
-API_KEY='abc123' cardo highgroove.rb
+API_KEY='abc123' ruby highgroove.rb
 ```
