@@ -24,7 +24,9 @@ Cardo.describe do
 
   project_id 123456
 
-  weekly pivot: "Wednesday" do
+  pivot_day "Wednesday"
+
+  weekly do
     feature "Weekly Review", estimate: 1,
                              labels:   'weekly-review',
                              owned_by: WEEKLY_REVIEWER
