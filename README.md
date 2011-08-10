@@ -19,7 +19,9 @@ Cardo.describe do
   # Can be copied from <https://www.pivotaltracker.com/profile>
   api_key ENV['API_KEY']
 
-  weekly do
+  project_id 123456
+
+  weekly pivot: "Wednesday" do
     feature "Weekly Review", estimate: 1,
                              labels:   'weekly-review',
                              owned_by: WEEKLY_REVIEWER
