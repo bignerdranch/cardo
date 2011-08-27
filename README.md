@@ -4,6 +4,10 @@ Cardo
 Cardo is a DSL we created at Highgroove to create recurring stories in
 Pivotal Tracker.
 
+**It is currently the result of a spike, and doesn't quite function
+exactly as you might expect. Furthermore, there are (as of yet) little
+to no tests.**
+
 Examples
 --------
 
