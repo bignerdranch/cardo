@@ -1,6 +1,8 @@
 Cardo
 =====
 
+![travis-ci build status](https://secure.travis-ci.org/highgroove/cardo.png)
+
 Cardo is a DSL we created at Highgroove to create recurring stories in
 Pivotal Tracker.
 
