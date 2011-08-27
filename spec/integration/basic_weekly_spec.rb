@@ -1,6 +1,7 @@
 require "spec_helper"
 require "date"
 require "uri"
+require "active_support/core_ext/hash/except"
 
 describe "basic weekly feature" do
   before do
@@ -31,7 +32,6 @@ describe "basic weekly feature" do
     it "creates the weekly review story" do
       run_cardo
 
-      # https://www.pivotaltracker.com/services/v3/projects/269443/stories
       a_request(:post, "https://www.pivotaltracker.com/services/v3/projects/269443/stories").
         with do |req|
           Hash[URI.decode_www_form(req.body)] == {"story[project_id]" => "269443",
@@ -40,6 +40,23 @@ describe "basic weekly feature" do
                                                   "story[estimate]"   => "1",
                                                   "story[labels]"     => "weekly-review",
                                                   "story[owned_by]"   => "Andy Lindeman"}
+        end.should have_been_made
+    end
+
+    it "creates the weekly release" do
+      run_cardo
+
+      a_request(:post, "https://www.pivotaltracker.com/services/v3/projects/269443/stories").
+        with do |req|
+          body_params = Hash[URI.decode_www_form(req.body)]
+
+          success = body_params.except("story[deadline]") == {"story[project_id]" => "269443",
+                                                              "story[story_type]" => "release",
+                                                              "story[name]"       => "Wednesday, September 07 2011",
+                                                              "story[labels]"     => "weekly-release"}
+
+          success &= body_params["story[deadline]"] &&
+                     body_params["story[deadline]"].start_with?("2011-09-07")
         end.should have_been_made
     end
   end
