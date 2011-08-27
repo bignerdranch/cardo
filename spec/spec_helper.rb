@@ -2,8 +2,10 @@ require "rubygems"
 require "bundler"
 Bundler.require(:default, :development)
 
-require "ruby-debug"
-Debugger.start
+unless ENV["CI"]
+  require "ruby-debug"
+  Debugger.start
+end
 
 require "webmock/rspec"
 
