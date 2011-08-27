@@ -8,6 +8,11 @@ Pivotal Tracker.
 exactly as you might expect. Furthermore, there are (as of yet) little
 to no tests.**
 
+Requirements
+------------
+
+* Ruby >= 1.9.x (developed with MRI 1.9.2)
+
 Examples
 --------
 
