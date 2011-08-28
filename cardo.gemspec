@@ -26,6 +26,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency "vcr", "~>1.10.3"
   s.add_development_dependency "webmock", "~>1.6.4"
   s.add_development_dependency "timecop", "~>0.3.5"
-  s.add_development_dependency "ruby-debug19"
+  unless ENV["CI"]
+    s.add_development_dependency "ruby-debug19"
+  end
   s.add_development_dependency "activesupport", "~>3.0.0"
 end
