@@ -33,9 +33,9 @@ Cardo.describe do
   # Can be copied from <https://www.pivotaltracker.com/profile>
   api_key ENV['API_KEY']
 
+  # Retrieve from the last URL path from a Tracker project URL
+  # e.g., https://www.pivotaltracker.com/projects/123456
   project_id 123456
-
-  pivot_day "Wednesday"
 
   weekly do
     feature "Weekly Review", estimate: 1,

@@ -16,7 +16,6 @@ describe "basic weekly feature" do
     Cardo.describe do
       api_key "abc123"
       project_id 269443
-      pivot_day "Wednesday"
 
       weekly do
         feature "Weekly Review", estimate: 1,

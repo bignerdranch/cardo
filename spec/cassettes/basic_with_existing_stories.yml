@@ -35,7 +35,7 @@
       - nginx/0.8.54 + Phusion Passenger 3.0.7 (mod_rails/mod_rack)
     body: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project>\n  <id>269443</id>\n
       \ <name>Andy's Test Project</name>\n  <iteration_length type=\"integer\">1</iteration_length>\n
-      \ <week_start_day>Monday</week_start_day>\n  <point_scale>0,1,2,3</point_scale>\n
+      \ <week_start_day>Wednesday</week_start_day>\n  <point_scale>0,1,2,3</point_scale>\n
       \ <account>Highgroove Studios</account>\n  <first_iteration_start_time type=\"datetime\">2011/08/22
       01:00:00 EDT</first_iteration_start_time>\n  <current_iteration_number type=\"integer\">1</current_iteration_number>\n
       \ <enable_tasks type=\"boolean\">true</enable_tasks>\n  <velocity_scheme>Average

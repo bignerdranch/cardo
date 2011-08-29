@@ -9,7 +9,7 @@ module Cardo
     # Getter/setter DSL methods
     # If an argument is provided, it's a setter
     # If not, it's a getter
-    [:api_key, :project_id, :pivot_day].each do |method|
+    [:api_key, :project_id].each do |method|
       class_eval <<-EOE
         def #{method}(arg = nil)
           if arg
@@ -37,6 +37,10 @@ module Cardo
 
     def create_story(options)
       _project.stories.build(options)
+    end
+
+    def pivot_day
+      _project.week_start_day
     end
 
     private
