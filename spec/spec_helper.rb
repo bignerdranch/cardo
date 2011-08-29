@@ -2,6 +2,8 @@ require "rubygems"
 require "bundler"
 Bundler.require(:default, :development)
 
+ENV["TEST"] = "yes"
+
 unless ENV["CI"]
   require "ruby-debug"
   Debugger.start

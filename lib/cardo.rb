@@ -20,10 +20,14 @@ module Cardo
     begin
       yield
     rescue Exception => e
-      notice_error(e)
+      if ENV["TEST"]
+        raise
+      else
+        notice_error(e)
 
-      sleep RETRY_INTERVAL
-      retry
+        sleep RETRY_INTERVAL
+        retry
+      end
     end
   end
 
