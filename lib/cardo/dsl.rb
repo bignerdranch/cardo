@@ -1,9 +1,9 @@
-require_relative "dsl/weekly"
+require_relative "dsl/iteration_definition"
 
 module Cardo
   class DSL
     def initialize
-      @recurring_dsls = []
+      @iteration_definitions = []
     end
 
     # Getter/setter DSL methods
@@ -21,18 +21,18 @@ module Cardo
       EOE
     end
 
-    def weekly(options = {}, &block)
+    def every_iteration(&block)
       _needed_release_dates.each do |date|
-        dsl = Cardo::DSL::Weekly.new(self, date, options)
+        dsl = IterationDefinition.new(self, date)
         dsl.instance_eval(&block)
 
-        @recurring_dsls << dsl
+        @iteration_definitions << dsl
       end
     end
 
     def finish!
       _validate_config!
-      @recurring_dsls.each(&:finish!)
+      @iteration_definitions.each(&:finish!)
     end
 
     def create_story(options)

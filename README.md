@@ -37,7 +37,7 @@ Cardo.describe do
   # e.g., https://www.pivotaltracker.com/projects/123456
   project_id 123456
 
-  weekly do
+  every_iteration do
     feature "Weekly Review", estimate: 1,
                              labels:   'weekly-review',
                              owned_by: WEEKLY_REVIEWER

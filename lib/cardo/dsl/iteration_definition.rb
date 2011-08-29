@@ -1,10 +1,9 @@
 module Cardo
   class DSL
-    class Weekly
-      def initialize(dsl, release_date, options = {})
+    class IterationDefinition
+      def initialize(dsl, release_date)
         @dsl          = dsl
         @release_date = release_date
-        @options      = options
 
         @stories      = []
       end
