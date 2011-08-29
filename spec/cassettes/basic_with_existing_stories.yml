@@ -1,0 +1,101 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://www.pivotaltracker.com:443/services/v3/projects/269443
+    body: !!null 
+    headers:
+      accept:
+      - ! '*/*; q=0.5, application/xml'
+      x-trackertoken:
+      - abc123
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/xml; charset=utf-8
+      status:
+      - '200'
+      x-powered-by:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.7
+      etag:
+      - ! '"819db91d8bbd018d103c9f83b78ec18e"'
+      x-runtime:
+      - '64'
+      content-length:
+      - '1674'
+      set-cookie:
+      - t_session=BAh7BzoPZXhwaXJlc19hdEl1OglUaW1lDaHgG4AhRiWXBjofQG1hcnNoYWxfd2l0aF91dGNfY29lcmNpb25GOg9zZXNzaW9uX2lkIiU1MjNkMTdhMjA2YWEwNzcxNzBhNzI1YWQ0YzI3MzgxYg%3D%3D--f3ab25f1d954c3010a315288e0578fd824d1af32;
+        path=/; secure; HttpOnly
+      cache-control:
+      - private, max-age=0, must-revalidate
+      server:
+      - nginx/0.8.54 + Phusion Passenger 3.0.7 (mod_rails/mod_rack)
+    body: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project>\n  <id>269443</id>\n
+      \ <name>Andy's Test Project</name>\n  <iteration_length type=\"integer\">1</iteration_length>\n
+      \ <week_start_day>Monday</week_start_day>\n  <point_scale>0,1,2,3</point_scale>\n
+      \ <account>Highgroove Studios</account>\n  <first_iteration_start_time type=\"datetime\">2011/08/22
+      01:00:00 EDT</first_iteration_start_time>\n  <current_iteration_number type=\"integer\">1</current_iteration_number>\n
+      \ <enable_tasks type=\"boolean\">true</enable_tasks>\n  <velocity_scheme>Average
+      of 3 iterations</velocity_scheme>\n  <current_velocity>10</current_velocity>\n
+      \ <initial_velocity>10</initial_velocity>\n  <number_of_done_iterations_to_show>12</number_of_done_iterations_to_show>\n
+      \ <labels>blog-post,code-review,demo-day,pairings,team-lunch,weekly-release,weekly-review</labels>\n
+      \ <last_activity_at type=\"datetime\">2011/08/27 14:57:21 EDT</last_activity_at>\n
+      \ <allow_attachments>true</allow_attachments>\n  <public>false</public>\n  <use_https>false</use_https>\n
+      \ <bugs_and_chores_are_estimatable>false</bugs_and_chores_are_estimatable>\n
+      \ <commit_mode>false</commit_mode>\n  <memberships type=\"array\">\n    <membership>\n
+      \     <id>825473</id>\n      <person>\n        <email>andy@highgroove.com</email>\n
+      \       <name>Andy Lindeman</name>\n        <initials>AL</initials>\n      </person>\n
+      \     <role>Owner</role>\n    </membership>\n    <membership>\n      <id>1124185</id>\n
+      \     <person>\n        <email>developer@highgroove.com</email>\n        <name>Highgroove
+      Studios</name>\n        <initials>HGS</initials>\n      </person>\n      <role>Member</role>\n
+      \   </membership>\n  </memberships>\n  <integrations type=\"array\">\n  </integrations>\n</project>\n"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://www.pivotaltracker.com:443/services/v3/projects/269443/stories?filter=type:release
+    body: !!null 
+    headers:
+      accept:
+      - ! '*/*; q=0.5, application/xml'
+      x-trackertoken:
+      - abc123
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/xml
+      status:
+      - '200'
+      x-powered-by:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.7
+      content-transfer-encoding:
+      - binary
+      content-disposition:
+      - attachment; filename="index__filter_type_3arelease.xml"
+      x-runtime:
+      - '1130'
+      content-length:
+      - '737'
+      set-cookie:
+      - t_session=BAh7BzoPZXhwaXJlc19hdEl1OglUaW1lDaHgG4BDdSyXBjofQG1hcnNoYWxfd2l0aF91dGNfY29lcmNpb25GOg9zZXNzaW9uX2lkIiVlZjY3NzA4MjYyMzZmMjE5ZDBjYzZkYWNjNTRlMmFlOQ%3D%3D--8b235ef4c7b9bc91436e058005db57d6f08b7af6;
+        path=/; secure; HttpOnly
+      cache-control:
+      - private
+      server:
+      - nginx/0.8.54 + Phusion Passenger 3.0.7 (mod_rails/mod_rack)
+    body: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<stories type=\"array\" filter=\"type:release\"
+      count=\"1\" total=\"1\">\n  <story>\n    <id type=\"integer\">17551923</id>\n
+      \   <project_id type=\"integer\">269443</project_id>\n    <story_type>release</story_type>\n
+      \   <url>http://www.pivotaltracker.com/story/show/17551923</url>\n    <current_state>unscheduled</current_state>\n
+      \   <description></description>\n    <name>Wednesday, September 07 2011</name>\n
+      \   <requested_by>Andy Lindeman</requested_by>\n    <created_at type=\"datetime\">2011/08/27
+      14:57:19 EDT</created_at>\n    <updated_at type=\"datetime\">2011/08/27 14:57:19
+      EDT</updated_at>\n    <deadline type=\"datetime\">2011/09/07 12:00:00 EDT</deadline>\n
+      \   <labels>weekly-release</labels>\n  </story>\n</stories>\n"
+    http_version: '1.1'

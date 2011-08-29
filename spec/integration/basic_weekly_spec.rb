@@ -60,4 +60,15 @@ describe "basic weekly feature" do
         end.should have_been_made
     end
   end
+
+  context "with existing stories" do
+    use_vcr_cassette "basic_with_existing_stories"
+
+    it "does not create stories" do
+      run_cardo
+
+      a_request(:post, "https://www.pivotaltracker.com/services/v3/projects/269443/stories").
+        should_not have_been_made
+    end
+  end
 end
