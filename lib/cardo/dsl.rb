@@ -68,7 +68,7 @@ module Cardo
     def _release_exists?(deadline)
       _releases.any? do |release|
         if release.attributes.key?("deadline") && release.attributes.key?("labels")
-          release.labels.split(",").include?("weekly-release") && Time.parse(release.deadline) == deadline
+          release.labels.split(",").include?("weekly-release") && Date.parse(release.deadline) == deadline.to_date
         else
           false
         end
