@@ -43,6 +43,18 @@ module Cardo
       _project.week_start_day
     end
 
+    def iteration_length_in_weeks
+      _project.iteration_length
+    end
+
+    def current_iteration_number
+      _project.current_iteration_number
+    end
+
+    def first_iteration_start_date
+      Date.parse(_project.first_iteration_start_time)
+    end
+
     private
 
     def _validate_config!
@@ -77,19 +89,17 @@ module Cardo
 
     def _needed_release_dates
       # See: https://github.com/highgroove/office-tools/blob/master/ptup2date.rb#L74-79
-      # TODO: Cleanup
+      @needed_release_dates ||= [].tap do |needed_release_dates|
+        first_iteration_end   = Chronic.parse(pivot_day, :now => first_iteration_start_date)
+        current_iteration_end = Chronic.parse("#{current_iteration_number * iteration_length_in_weeks} weeks hence",
+                                              :now => first_iteration_end)
 
-      if @needed_release_dates
-        @needed_release_dates
-      else
-        @needed_release_dates = [].tap do |needed_release_dates|
-          tmp_release_date = Chronic.parse("next #{pivot_day}")
-          # TODO: Multiple weeks
-          1.times do
-            tmp_release_date = release_date = Chronic.parse("next #{pivot_day}", :now => tmp_release_date)
+        # TODO: Support multiple weeks?
+        possible_needed_release_date = Chronic.parse("#{iteration_length_in_weeks} weeks hence",
+                                                     :now => current_iteration_end)
 
-            needed_release_dates << release_date unless _release_exists?(release_date)
-          end
+        unless _release_exists?(possible_needed_release_date)
+          needed_release_dates << possible_needed_release_date
         end
       end
     end
